@@ -1,0 +1,7 @@
+link:
+  vimrc: ~/.vimrc
+  gvimrc: ~/.gvimrc
+  bashrc: ~/.bashrc
+  zshrc: ~/.zshrc
+  tmux.conf: ~/.tmux.conf
+  fish/fish.config: ~/.config/fish/fish.config
