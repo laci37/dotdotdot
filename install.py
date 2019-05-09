@@ -11,8 +11,11 @@ if not os.path.exists(backupdir):
     os.mkdir(backupdir)
 
 for file_from, file_to in conf['link'].items():
+    file_to = file_to.replace("~", os.environ['HOME'])
     if os.path.exists(file_to):
-        fn = os.path.filename(file_to)
+        fn = file_to.replace('/', '-')
         shutil.move(file_to, os.path.join(backupdir, fn))
+    if not os.path.exists(os.path.dirname(file_to)):
+        os.makedirs(os.path.dirname(file_to))
     os.symlink(os.path.join(dotfiledir, file_from), file_to)
 

@@ -5,3 +5,4 @@ link:
   zshrc: ~/.zshrc
   tmux.conf: ~/.tmux.conf
   fish/fish.config: ~/.config/fish/fish.config
+  i3/config: ~/.config/i3/config
