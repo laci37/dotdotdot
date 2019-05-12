@@ -11,20 +11,14 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'ervandew/supertab'
-Plugin 'wincent/command-t'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/YankRing.vim'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
 Plugin 'fisadev/vim-isort'
 Plugin 'haishanh/night-owl.vim'
 Plugin 'vim-scripts/Gummybears'
 Plugin 'srcery-colors/srcery-vim'
-Plugin 'jceb/vim-orgmode'
 
 
 " All of your Plugins must be added before the following line
@@ -40,7 +34,6 @@ set tags=tags;/
  
 " line numbers
 set number
-set relativenumber
 
 "tabs are 2 spaces by default
 set expandtab
@@ -51,60 +44,33 @@ set splitright
 "swap file locations
 set dir=~/tmp,/var/tmp,/tmp
 
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=L  "remove left-hand scroll bar
-
 "custom maps
 let mapleader = '-'
 let maplocalleader = '\'
+
+"disable arrow keys in normal mode
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 noremap <right> <nop>
+
+"bind some hungarian keys to the proper key on a US keyboars
 nnoremap É :
 nmap ü -
+
+"edit vimrc quickly
 nnoremap <leader>ve :vsplit $MYVIMRC<cr>
 nnoremap <leader>vs :source $MYVIMRC<cr>
-"use reg a
-nnoremap <leader>p "ap
-vnoremap <leader>p "ap
-nnoremap <leader>P "aP
-vnoremap <leader>P "aP
-nnoremap <leader>y "ay
-vnoremap <leader>y "ay
-nnoremap <leader>Y "aY
-nnoremap <leader>d "ad
-vnoremap <leader>d "ad
-nnoremap <leader>D "aD
-nnoremap <leader>S "aS
-vnoremap <leader>s "as
 
-"comment line
-nnoremap <leader>cl ^i//<esc>
-
+"quickly reload a file modified outside vim
 nnoremap <leader>ct :checktime<cr>
 
-"uncomment line
-nnoremap <leader>ul ^xx
-
-"clean spaces at eol
-nnoremap <leader>ts :%s/\s\+$//<cr>
-
-"goto next class
-nnoremap <leader>gc /class<cr>
-
-"write and goto last buffer
-nnoremap <leader>a :w<cr>:b#<cr>
-
 "Y behaves as D
+"TODO this does not work actually
 nnoremap Y y$
 
 "toggle hl search
 nnoremap <leader>hl :set hlsearch!<cr>
-"-f launches FZF
-nnoremap <leader>f :FZF<cr>
 
 "quick substitue
 nnoremap gs :%s//g<Left><Left>
@@ -114,12 +80,6 @@ cnoremap w!! w !sudo tee % >/dev/null
 
 "quick next error
 nnoremap -- :cn<cr>
-
-"quick window change
-nnoremap <S-Right> <C-W><Right>
-nnoremap <S-Left> <C-W><Left>
-nnoremap <S-Up> <C-W><Up>
-nnoremap <S-Down> <C-W><Down>
 
 "quick norm for lines
 vnoremap -n :norm<space> 
@@ -216,6 +176,6 @@ nnoremap <leader>ccd :color<space>desert<cr>
 nnoremap <leader>ccc :color<space>mycontrast<cr>
 
 syntax enable
-colorscheme srcery
+colorscheme desert
 
 command! -nargs=* Git :! git <args>
