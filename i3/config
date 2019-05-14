@@ -26,6 +26,8 @@ font pango:monospace 10
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+for_window [class="^.*"] border pixel 10
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -139,6 +141,8 @@ bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +5%"
 
 bindsym XF86MonBrightnessDown exec "/home/mero/bin/brightness down"
 bindsym XF86MonBrightnessUp exec "/home/mero/bin/brightness up"
+#tpad
+bindsym $mod+n exec "/home/mero/bin/tpad-toggle"
 
 #programs
 #=========
@@ -175,6 +179,9 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
         tray_output primary
+        status_command i3status
 }
+
+#start nm-applet
+exec --no-startup-id nm-applet
