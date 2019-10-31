@@ -139,10 +139,12 @@ bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle"
 bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -5%"
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +5%"
 
-bindsym XF86MonBrightnessDown exec "/home/mero/bin/brightness down"
-bindsym XF86MonBrightnessUp exec "/home/mero/bin/brightness up"
+bindsym XF86MonBrightnessDown exec "sudo /opt/brightness.py down"
+bindsym XF86MonBrightnessUp exec "sudo /opt/brightness.py up"
 #tpad
 bindsym $mod+n exec "/home/mero/bin/tpad-toggle"
+#screenashot
+bindsym Print exec "scrot"
 
 #programs
 #=========
